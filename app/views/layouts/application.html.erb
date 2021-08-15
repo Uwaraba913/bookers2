@@ -13,10 +13,12 @@
     <header>
       <span>Bookers</span>
       <ul>
-        <li><%=link_to "home",root_path %></li>
         <% if user_signed_in? %>
+        <li><%= link_to "Home", users_path(current_user) %></li>
+        <li><%= link_to "Books", books_path %></li>
         <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
+        <li><%=link_to "home",root_path %></li>
         <li><%= link_to "sign up", new_user_registration_path %></li>
         <li><%=link_to "login", new_user_session_path %></li>
         <% end %>
