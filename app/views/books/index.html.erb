@@ -6,3 +6,23 @@
   <%= f.text_area :body %></br>
   <%= f.submit 'Create Book' %>
 <% end %>
+
+<h1>Books</h1>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <% @books.each do |book| %>
+  <tboby>
+    <tr>
+      <td>a</td>
+      <td><%= link_to book.title, book_path(book.id) %></td>
+      <td><%= book.body %></td>
+    </tr>
+  </tboby>
+  <% end %>
+</table>
