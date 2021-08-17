@@ -1,0 +1,11 @@
+<h2>User info</h2>
+<%= form_with model:@user, local:true do |f| %>
+  <label for="name">Name</label></br>
+  <%= f.text_field :name, autofocus: true, id:"name" %>
+  <label for="userImage">Image</label></br>
+  <%= f.attachment_field :profile_image, id:"userImage" %>
+  <label for="Introduction">Introduction</label></br>
+  <%= f.text_field :introduction, id:"Introduction" %><br>
+  <%= f.submit "Update User" %>
+<% end %>
+
