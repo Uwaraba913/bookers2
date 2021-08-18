@@ -1,8 +1,14 @@
+<%= render 'books/lists', user: @user, book: @new_book %>
+
 <h2>Book detail</h2>
 <table>
   <tboby>
     <tr>
-      <td></td>
+      <td><%= link_to user_path(@user.id) do %>
+        <%= attachment_image_tag @book.user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.png" %>
+        <% end %></br>
+        <%= link_to @user.name, user_path(@user.id) %>
+      </td>
       <td><%= link_to @book.title, book_path(@book.id) %></td>
       <td><%= @book.body %></td>
       <% if @book.user == current_user %>

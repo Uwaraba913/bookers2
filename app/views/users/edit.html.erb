@@ -1,3 +1,14 @@
+<% if @user.errors.any? %>
+  <div class="error-message">
+    <h3><%= @user.errors.count %>errors prohibited this obj from being saved</h3>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h2>User info</h2>
 <%= form_with model:@user, local:true do |f| %>
   <label for="name">Name</label></br>

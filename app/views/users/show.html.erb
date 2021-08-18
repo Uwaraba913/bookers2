@@ -1,18 +1,5 @@
-<h1>User info</h1>
-<p><%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "no_image.png" %></p>
-<table>
-  <tbody>
-    <tr>
-      <th>name</th>
-      <th><%= @user.name%></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= @user.introduction %></th>
-    </tr>
-  </tbody>
-</table>
-<p><%= link_to "edit", edit_user_path %></p>
+<%= render 'users/lists', user: @user, book: @book %>
+
 <h1>Book</h1>
 <table>
   <thead>
@@ -24,7 +11,10 @@
 <% @books.each do |book| %>
   <tboby>
     <tr>
-      <td><%= attachment_image_tag @user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.png" %></td>
+      <td><%= link_to user_path(book.user.id) do %>
+        <%= attachment_image_tag @user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.png" %>
+        <% end %>
+      </td>
       <td><%= link_to book.title, book_path(book.id) %></td>
       <td><%= book.body %></td>
     </tr>
