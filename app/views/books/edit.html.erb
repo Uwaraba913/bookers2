@@ -8,14 +8,19 @@
     </ul>
   </div>
 <% end %>
-
-<h1>Editing Book</h1>
-<%= form_with model:@book, local:true do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>opinion</p>
-  <%= f.text_area :body %></br>
-  <%= f.submit 'Update Book' %>
-<% end %>
-<span><%= link_to "Show", book_path(@book.id) %></span>|
-<span><%= link_to "Back", books_path %></span>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h1>Editing Book</h1>
+      <%= form_with model:@book, local:true do |f| %>
+        <label for="title">Title</label></br>
+        <%= f.text_field :title, class:"form-control", id:"title"%></br>
+        <label for="opinion">opinion</label></br>
+        <%= f.text_area :body, class:"form-control", id:"opinion" %></br>
+        <%= f.submit 'Update Book', class:"btn btn-success" %>
+      <% end %>
+      <span><%= link_to "Show", book_path(@book.id) %></span>|
+      <span><%= link_to "Back", books_path %></span>
+    </div>
+  </div>
+</div>
