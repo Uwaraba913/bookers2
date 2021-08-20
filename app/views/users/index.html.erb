@@ -1,21 +1,29 @@
-<%= render 'users/lists', user: @user, book: @book %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'users/lists', user: @user, book: @book %>
+    </div>
 
-<h1>Users</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>name</th>
-      <th>Link</th>
-    </tr>
-  </thead>
-  <% @users.each do |user| %>
-  <tboby>
-    <tr>
-      <td><%= attachment_image_tag user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.png" %></td>
-      <td><%= user.name %></td>
-      <td><%= link_to "Show", user_path(user.id) %></td>
-    </tr>
-  </tboby>
-  <% end %>
-</table>
+    <div class="col-md-8 mx-auto">
+      <h1>Users</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>name</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <% @users.each do |user| %>
+        <tboby>
+          <tr>
+            <td><%= attachment_image_tag user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.png" %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user.id) %></td>
+          </tr>
+        </tboby>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

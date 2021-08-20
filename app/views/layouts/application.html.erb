@@ -12,20 +12,29 @@
 
   <body>
     <header>
-      <span><%= link_to "Bookers", root_path %></span>
-      <ul>
-        <% if user_signed_in? %>
-        <li><%= link_to "Home", user_path(current_user.id), class:"fas fa-home" %></li>
-        <li><%= link_to "Users", users_path, class:"fas fa-users" %></li>
-        <li><%= link_to "Books", books_path, class:"fas fa-book-open" %></li>
-        <li><%= link_to "logout", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt" %></li>
-        <% else %>
-        <li><%= link_to "Home", root_path, class:"fas fa-home" %></li>
-        <li><%= link_to "About", home_about_path, class:"fas fa-link" %></li>
-        <li><%= link_to "sign up", new_user_registration_path, class:"fas fa-user-plus" %></li>
-        <li><%= link_to "login", new_user_session_path, class:"fas fa-sign-in-alt" %></li>
-        <% end %>
-      </ul>
+      <nav class="nav-bar navbar-expand-lg navbar-dark bg-dark p-2">
+      <div class="container box">
+        <span><%= link_to "Bookers",root_path, class:"navbar-brand" %></span>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse show" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+            <li><%= link_to "Home", user_path(current_user.id), class:"fas fa-home nav-link text-light nav-list text-light" %></li>
+            <li><%= link_to "Users", users_path, class:"fas fa-users nav-list text-light" %></li>
+            <li><%= link_to "Books", books_path, class:"fas fa-book-open nav-list text-light" %></li>
+            <li><%= link_to "logout", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt nav-list text-light" %></li>
+            <% else %>
+            <li><%= link_to "Home", root_path, class:"fas fa-home nav-list text-light" %></li>
+            <li><%= link_to "About", home_about_path, class:"fas fa-link nav-list text-light" %></li>
+            <li><%= link_to "sign up", new_user_registration_path, class:"fas fa-user-plus nav-list text-light" %></li>
+            <li><%= link_to "login", new_user_session_path, class:"fas fa-sign-in-alt nav-list text-light" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      </nav>
     </header>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
@@ -33,6 +42,10 @@
     <%= yield %>
   </body>
   <footer>
-    <div class="footer-text">CopyRight Infratop.inc</div>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">CopyRight Infratop.inc</div>
+      </div>
+    </div>
   </footer>
 </html>

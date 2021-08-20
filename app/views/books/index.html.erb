@@ -9,27 +9,35 @@
   </div>
 <% end %>
 
-<%= render 'books/lists', user: @user, book: @book %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'books/lists', user: @user, book: @book %>
+    </div>
 
-<h1>Books</h1>
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
-  <% @books.each do |book| %>
-  <tboby>
-    <tr>
-      <td><%= link_to user_path(book.user.id) do %>
-        <%= attachment_image_tag book.user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.png" %>
+    <div class="col-md-8 mx-auto">
+      <h1>Books</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        <% @books.each do |book| %>
+        <tboby>
+          <tr>
+            <td><%= link_to user_path(book.user.id) do %>
+              <%= attachment_image_tag book.user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.png" %>
+              <% end %>
+            </td>
+            <td><%= link_to book.title, book_path(book.id) %></td>
+            <td><%= book.body %></td>
+          </tr>
+        </tboby>
         <% end %>
-      </td>
-      <td><%= link_to book.title, book_path(book.id) %></td>
-      <td><%= book.body %></td>
-    </tr>
-  </tboby>
-  <% end %>
-</table>
+      </table>
+    </div>
+  </div>
+</div>

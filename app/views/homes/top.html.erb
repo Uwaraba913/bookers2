@@ -1,10 +1,18 @@
 <body>
   <main>
-    <h1>welcome to <i class="fas fa-book"></i>Books!!</h1>
-    <p>In <i class="fas fa-book"></i>Bookers</p>
-    <p>you can share and exchange your opinions , inpressions , and emotions</p>
-    <p>about various books!</p>
-    <div class="login"><%= link_to "Log in", new_user_session_path %></div>
-    <div class="signin"><%= link_to "Sign up", new_user_registration_path %></div>
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-6">
+          <h1>welcome to <i class="fas fa-book"></i>Books!!</h1>
+          <p>In <i class="fas fa-book"></i>Bookers</p>
+          <p>you can share and exchange your opinions , inpressions , and emotions</p>
+          <p>about various books!</p>
+          <div class="container btn-wrapper">
+            <%= link_to "Log in", new_user_session_path, class:"btn btn_info btn-block", role:"button" %>
+            <%= link_to "Sign up", new_user_registration_path, class:"btn btn_success btn-block"%>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </body>
